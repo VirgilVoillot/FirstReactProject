@@ -12,6 +12,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 
+import { Link } from "react-router-dom";
+
 export function MenuLateral() {
     return <div>
         <Divider />
@@ -24,41 +26,65 @@ export function MenuLateral() {
 
 const mainListItems = (
   <div>
-    <ListItem button>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <FormatListNumberedIcon />
-      </ListItemIcon>
-      <ListItemText primary="ToDo List" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AccountBalanceIcon />
-      </ListItemIcon>
-      <ListItemText primary="Loan" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <CalculateIcon />
-      </ListItemIcon>
-      <ListItemText primary="Budget" />
-    </ListItem>
+    
+      <nav>
+        <Link to="/">
+        <ListItem button>
+          <ListItemIcon>
+            <DashboardIcon />
+          </ListItemIcon>
+          <ListItemText primary="Dashboard" />
+        </ListItem>
+        </Link>
+      </nav>
+
+      <nav>
+        <Link to="/todo">
+        <ListItem button>
+          <ListItemIcon>
+            <FormatListNumberedIcon />
+          </ListItemIcon>
+          <ListItemText primary="ToDo List" />
+          </ListItem>
+        </Link>
+      </nav>
+
+      <nav>
+        <Link to="/loan">
+          <ListItem button>
+          <ListItemIcon>
+            <AccountBalanceIcon />
+          </ListItemIcon>
+          <ListItemText primary="Loan" />
+          </ListItem>
+        </Link>
+      </nav>
+
+      <nav>
+        <Link to="/budget">
+          <ListItem button>
+            <ListItemIcon>
+              <CalculateIcon />
+            </ListItemIcon>
+            <ListItemText primary="Budget" />
+          </ListItem>
+        </Link>
+      </nav>
   </div>
 );
 
 const secondaryListItems = (
   <div>
     <ListSubheader inset>Others</ListSubheader>
-    <ListItem button>
-      <ListItemIcon>
-        <PersonIcon />
-      </ListItemIcon>
-      <ListItemText primary="Contact" />
-    </ListItem>
+    <nav>
+      <Link to="/contact">
+        <ListItem button>
+          <ListItemIcon>
+            <PersonIcon />
+          </ListItemIcon>
+          <ListItemText primary="Contact" />
+        </ListItem>
+      </Link>
+    </nav>
   </div>
 );

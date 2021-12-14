@@ -8,15 +8,18 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Link from '@mui/material/Link';
+
+import { Routes, Route } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
 import {MenuLateral} from './MenuLateral';
+import { Home } from '../router/Home';
+import { Contact } from '../router/Contact';
+import { TodoList } from '../router/TodoList';
+import { Loan } from '../router/Loan';
+import { Budget} from '../router/Budget';
 
 export default function Dashboard() {
     return <DashboardContent />;
@@ -152,42 +155,13 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
             }}
           >
             <Toolbar />
-            <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-              <Grid container spacing={3}>
-                {/* Chart */}
-                <Grid item xs={12} md={8} lg={9}>
-                  <Paper
-                    sx={{
-                      p: 2,
-                      display: 'flex',
-                      flexDirection: 'column',
-                      height: 240,
-                    }}
-                  >
-                    ToDo List
-                  </Paper>
-                </Grid>
-                {/* Recent Deposits */}
-                <Grid item xs={12} md={4} lg={3}>
-                  <Paper
-                    sx={{
-                      p: 2,
-                      display: 'flex',
-                      flexDirection: 'column',
-                      height: 240,
-                    }}
-                  >
-                    Loan
-                  </Paper>
-                </Grid>
-                {/* Recent Orders */}
-                <Grid item xs={12}>
-                  <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                    Budget
-                  </Paper>
-                </Grid>
-              </Grid>
-            </Container>
+            <Routes>
+              <Route path="/" element={<Home/>} />
+              <Route path="contact" element={<Contact/>}/>
+              <Route path="todo" element={<TodoList/>}/>
+              <Route path="loan" element={<Loan/>}/>
+              <Route path="budget" element={<Budget/>}/>
+            </Routes>
           </Box>
         </Box>
       </ThemeProvider>
